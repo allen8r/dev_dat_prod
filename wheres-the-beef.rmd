@@ -1,0 +1,93 @@
+---
+title: "Where's the Beef?"
+author: ""
+date: "November 8, 2016"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r, echo=FALSE}
+library(shiny)
+library(leaflet)
+
+ui <- fluidPage(
+    titlePanel(""),
+    
+    sidebarLayout(
+        
+        sidebarPanel(
+            selectInput("restaurant", label = "Select burger joint:",
+                        choices = c("In-N-Out"="1",
+                                    "The Habit Burger"="2",
+                                    "The Counter"="3",
+                                    "Burger King"="4",
+                                    "Five Guys Burger"="5"), 
+                        selected = "1")
+        ),
+        
+        mainPanel(
+            leafletOutput("burgermap")    
+        )
+    )
+)
+
+server <- function(input, output, session) {
+    
+    locations <- data.frame(
+                    restr = c("In-N-Out Burger",
+                              "The Habit Burger",
+                              "The Counter",
+                              "Burger King",
+                              "Five Guys Burger"
+                              ),
+                    
+                    lat = c(37.5119694,
+                            37.5479937,
+                            37.5347488,
+                            37.5409048,
+                            37.5558328
+                            ),
+                    
+                    lng = c(-122.2616835,
+                            -122.3010797,
+                            -122.2990933,
+                            -122.3032659,
+                            -122.2763042
+                            ),
+                    
+                    ext_link = c("https://www.yelp.com/biz/in-n-out-burger-san-carlos",
+                                 "https://www.yelp.com/biz/the-habit-burger-grill-san-mateo",
+                                 "https://www.yelp.com/biz/the-counter-san-mateo-san-mateo-2",
+                                 "https://www.yelp.com/biz/burger-king-san-mateo-2",
+                                 "https://www.yelp.com/biz/five-guys-burgers-and-fries-foster-city"
+                                 )
+                    )
+    
+    burgerjoint <- reactive({
+      locations[input$restaurant,]
+    })
+    
+   
+    
+    output$burgermap <- renderLeaflet({
+        burgerjoint() %>%
+            leaflet() %>%
+            addTiles() %>%
+            addMarkers(popup = ~paste("🍔 <a href='",
+                                     ext_link,"' target='_blank'>",
+                                     restr," on Yelp</a> 😋",
+                                     sep = "")
+                       )
+    })
+}
+
+
+shinyApp(ui, server)
+```
+
