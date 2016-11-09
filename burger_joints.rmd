@@ -10,8 +10,6 @@ runtime: shiny
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
-
 ```{r, echo=FALSE}
 library(shiny)
 library(leaflet)
@@ -22,12 +20,15 @@ ui <- fluidPage(
     sidebarLayout(
         
         sidebarPanel(
-            selectInput("restaurant", label = "Select burger joint:",
+            h5("Select burger joints (Click input field to see more options):"),
+            selectInput("restaurants",
+                        label = "Restaurants",
                         choices = c("In-N-Out"="1",
                                     "The Habit Burger"="2",
                                     "The Counter"="3",
                                     "Burger King"="4",
-                                    "Five Guys Burger"="5"), 
+                                    "Five Guys Burger"="5"),
+                        multiple = TRUE,
                         selected = "1")
         ),
         
@@ -70,7 +71,7 @@ server <- function(input, output, session) {
                     )
     
     burgerjoint <- reactive({
-      locations[input$restaurant,]
+      locations[input$restaurants,]
     })
     
    
@@ -90,4 +91,3 @@ server <- function(input, output, session) {
 
 shinyApp(ui, server)
 ```
-
