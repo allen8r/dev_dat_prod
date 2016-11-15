@@ -1,0 +1,34 @@
+---
+title: "Meteorite Landings"
+author: ""
+date: "November 14, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE)
+```
+
+This comprehensive data set from The Meteoritical Society contains data on all of the known meteorite landings, consisting of 45,716 observations (obtained from <a href="https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh" target="_blank">NASA's Data Portal</a>). It may take some time for the complete map to load.
+
+The diameter of each marker at a landing site is scaled to the mass of its corresponding meteorite. Zoom in to see finer detail of individual landing sites.
+
+```{r pressure, warning=FALSE, echo=TRUE}
+library(plotly, warn.conflicts=FALSE, quietly=TRUE)
+
+mLnd <- read.csv("Meteorite_Landings.csv")
+
+hover_text <- paste(mLnd$name,"<br>",
+                    mLnd$fall, mLnd$year, "<br>",
+                    "Mass:", mLnd$mass, "g"
+                    )
+
+plot_ly(data=mLnd, type="scattergeo",
+        lon=mLnd$reclong, 
+        lat=mLnd$reclat, 
+        mode="markers",
+        size=mLnd$mass,
+        text=hover_text
+        )
+```
+
