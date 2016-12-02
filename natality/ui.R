@@ -14,13 +14,31 @@ shinyUI(fluidPage(
                          ),
             
             hr(),
-            h5("Source:"),
-            a("data.gov",
-              href="https://catalog.data.gov/dataset/birth-rates-by-age-of-mother-united-states-1940-2013")
+            h5("Sources:"),
+            tags$ul(
+                tags$li(
+                    a("NCHS - Birth Rates, by Age of Mother: United States, 1940-2013",
+                      href = "https://catalog.data.gov/dataset/birth-rates-by-age-of-mother-united-states-1940-2013")
+                ),
+                tags$li(
+                    a("NCHS - Births, Birth Rates, and Fertility Rates, by Race of Mother: United States, 1960-2013",
+                      href = "https://catalog.data.gov/dataset/births-birth-rates-and-fertility-rates-by-race-of-mother-united-states-1960-2013")
+                )
+            )
         ),
         
         mainPanel(
-            plotlyOutput("birthPlot")    
+            plotlyOutput("birthPlot"),
+            hr(),
+            h5(
+                em(
+                    tags$ul(
+                        tags$li("Click on groups in the legend to toggle displaying their graphs."),
+                        tags$li("Drag select a rectangular area to zoom in on the data within the selection.")
+                    )
+                )
+            )
         )
     )
+    
 ))
