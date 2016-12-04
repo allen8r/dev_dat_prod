@@ -4,14 +4,15 @@ shinyUI(fluidPage(
     sidebarLayout(
         
         sidebarPanel(
-            radioButtons("data",
-                         label="Show:",
-                         choices = list("Birth Rate by Age" = "nat_by_age",
-                                        "Birth Rate by Race" = "br_by_race",
-                                        "Live Births by Race" = "lb_by_race",
-                                        "Fertility Rate by Race" = "fr_by_race"),
-                         selected = "nat_by_age"
-                         ),
+            radioButtons(
+                "data",
+                label="Show:",
+                choices = list("Birth Rate by Age" = "br_by_age",
+                            "Birth Rate by Race" = "br_by_race",
+                            "Live Births by Race" = "lb_by_race",
+                            "Fertility Rate by Race" = "fr_by_race"),
+                selected = "br_by_age"
+            ),
             
             hr(),
             h5("Sources:"),
