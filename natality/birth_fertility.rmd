@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Summary
 
-The birth and fertility rates data obtained through the [CDC](https://www.cdc.gov/) and [DATA.GOV](https://www.data.gov/) provide a glimpse into the contribution of births by mothers of differnt races and age groups in the United States for the past half to three-quarter century. Using the [Natality_Birth_Fertility_Browser](https://allen8r.shinyapps.io/Natality_Birth_Fertility_Browser/) at https://allen8r.shinyapps.io/Natality_Birth_Fertility_Browser/ one can clearly see the birth rates trending downwards through the years for all races and age groups. There were a few exceptional periods of rapid increase in the birth and fertility rates. These growth periods seem to coincide with periods of economic expansion in the United States during the mid to late 20th and early 21st centuries. However, in spite of these short-term upticks, the general trend seem to indicate that birth and fertility rates will continue to fall as time passes.
+The birth and fertility rates data obtained through the [CDC](https://www.cdc.gov/) and [DATA.GOV](https://www.data.gov/) provide a glimpse into the contribution of births by mothers of different races and age groups in the United States for the past half to three-quarter century. Using the [Natality_Birth_Fertility_Browser](https://allen8r.shinyapps.io/Natality_Birth_Fertility_Browser/) at https://allen8r.shinyapps.io/Natality_Birth_Fertility_Browser/ one can clearly see the birth rates trending downwards through the years for all races and age groups. There were a few exceptional periods of rapid increase in the birth and fertility rates. These growth periods seem to coincide with periods of economic expansion in the United States during the mid to late 20th and early 21st centuries. However, in spite of these short-term upticks, the general trend seems to indicate that birth and fertility rates will continue to fall as time passes.
 
 ## Sample Data
 ```{r echo = FALSE}
@@ -26,7 +26,7 @@ head(natality, 15)
 plot(natality)
 ```
 
-See [Natality_Birth_Fertility_Browser](https://allen8r.shinyapps.io/Natality_Birth_Fertility_Browser/) application for in depth details of the birth, fertility, data broken down by race and age groups.
+See [Natality_Birth_Fertility_Browser](https://allen8r.shinyapps.io/Natality_Birth_Fertility_Browser/) application for in-depth details of the birth, fertility, data broken down by race and age groups.
 
 
 ## Sources
