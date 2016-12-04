@@ -30,7 +30,6 @@ See [Natality_Birth_Fertility_Browser](https://allen8r.shinyapps.io/Natality_Bir
 
 
 ## Sources
-
 - [NCHS - Birth Rates, by Age of Mother: United States, 1940-2013](https://catalog.data.gov/dataset/birth-rates-by-age-of-mother-united-states-1940-2013)
 
 - [NCHS - Births, Birth Rates, and Fertility Rates, by Race of Mother: United States, 1960-2013](https://catalog.data.gov/dataset/births-birth-rates-and-fertility-rates-by-race-of-mother-united-states-1960-2013)
@@ -38,4 +37,7 @@ See [Natality_Birth_Fertility_Browser](https://allen8r.shinyapps.io/Natality_Bir
 - [CDC - Center for Disease Control and Prevention](https://www.cdc.gov/)
     
 - [DATA.GOV - The home of the U.S. Government's open data](https://www.data.gov/)
+
+### References
+- [GitHub source files](https://github.com/allen8r/dev_dat_prod/tree/gh-pages/natality) for the [Natality_Birth_Fertility_Browser](https://allen8r.shinyapps.io/Natality_Birth_Fertility_Browser/) application
 
